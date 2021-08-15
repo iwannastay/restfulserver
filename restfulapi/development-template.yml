@@ -1,0 +1,37 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata: &id001
+  annotations:
+    type: development-container
+  labels:
+    app: dev1
+    user: iws
+  name: dev1
+  namespace: development
+spec:
+  minReadySeconds: 10
+  replicas: 1
+  selector:
+    matchLabels:
+      app: dev1
+      user: iws
+  template:
+    metadata: *id001
+    spec:
+      containers:
+      - args:
+        - /usr/sbin/sshd && /bin/bash&& while true;do sleep 10; done;
+        command:
+        - /bin/bash
+        - -c
+        image: 10.16.17.92:8433/library/ubuntu16.04-ssh:v1
+        imagePullPolicy: Always
+        name: dev1
+        ports:
+        - containerPort: 80
+        resources:
+          requests:
+            memory: 300Mi
+            cpu: 200m
+      imagePullSecrets:
+      - name: harbor-admin-secret

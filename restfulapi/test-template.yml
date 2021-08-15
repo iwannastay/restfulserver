@@ -1,0 +1,49 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  labels:
+    app: test-a1-1
+  name: test-a1-1
+  namespace: default
+spec:
+  containers:
+  - args:
+    - /usr/sbin/sshd && chmod +x /gitCompProject/runScript.sh && /bin/bash /gitCompProject/runScript.sh&&
+      while true;do sleep 10; done;
+    command:
+    - /bin/bash
+    - -c
+    image: 10.16.17.92:8433/library/ubuntu16.04-ssh:v1
+    imagePullPolicy: IfNotPresent
+    name: test-a1-1
+    ports:
+    - containerPort: 22
+    resources:
+      requests:
+        memory: 800Mi
+        cpu: 200m
+    volumeMounts:
+    - mountPath: /TestData/LOG
+      name: expose-file
+    - mountPath: /TestData
+      name: demo
+    - mountPath: /gitCompProject
+      name: git-repo
+  imagePullSecrets:
+  - name: harbor-admin-secret
+  volumes:
+  - name: expose-file
+    nfs:
+      path: /mnt/data/Algorithms/a1/TEST/1
+      readOnly: false
+      server: 10.16.17.92
+  - name: demo
+    nfs:
+      path: /mnt/data/Algorithms/a1/DEMO
+      readOnly: false
+      server: 10.16.17.92
+  - gitRepo:
+      directory: .
+      repository: https://github.com/iwannastay/helloworld.git
+      revision: main
+    name: git-repo

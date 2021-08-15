@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataSource name="MongoDB - admin@10.16.17.92">
+  <database-model serializer="dbm" dbms="MONGO" family-id="MONGO" format-version="4.20">
+    <root id="1">
+      <ServerVersion>4.4.5</ServerVersion>
+    </root>
+    <schema id="2" parent="1" name="admin">
+      <Current>1</Current>
+    </schema>
+    <schema id="3" parent="1" name="config"/>
+    <schema id="4" parent="1" name="local"/>
+    <schema id="5" parent="1" name="system-apiserver"/>
+    <table id="6" parent="2" name="Algorithms"/>
+    <table id="7" parent="2" name="Deployments"/>
+    <table id="8" parent="2" name="Developments"/>
+    <table id="9" parent="2" name="Ports"/>
+    <table id="10" parent="2" name="Requests"/>
+    <table id="11" parent="2" name="Users"/>
+    <table id="12" parent="2" name="ids"/>
+    <table id="13" parent="2" name="test"/>
+    <column id="14" parent="6" name="_id">
+      <DataType>ObjectId(0)|12s</DataType>
+    </column>
+    <column id="15" parent="6" name="algorithmNo">
+      <DataType>String(0)|12s</DataType>
+    </column>
+    <column id="16" parent="6" name="codePath">
+      <DataType>String(0)|12s</DataType>
+    </column>
+    <column id="17" parent="6" name="imageName">
+      <DataType>String(0)|12s</DataType>
+    </column>
+    <column id="18" parent="6" name="shellParams">
+      <DataType>String(0)|12s</DataType>
+    </column>
+    <column id="19" parent="6" name="testList">
+      <DataType>list(0)|4999545s</DataType>
+    </column>
+    <column id="20" parent="6" name="compileScript">
+      <Position>1</Position>
+      <DataType>String(0)|12s</DataType>
+    </column>
+    <column id="21" parent="6" name="algorithmPackage">
+      <Position>1</Position>
+      <DataType>map(0)|4999544s</DataType>
+    </column>
+    <column id="22" parent="6" name="compileStatus">
+      <Position>2</Position>
+      <DataType>String(0)|12s</DataType>
+    </column>
+    <column id="23" parent="6" name="algorithmPackage.cpuNumbers">
+      <Position>2</Position>
+      <DataType>String(0)|12s</DataType>
+    </column>
+    <column id="24" parent="6" name="computePackage">
+      <Position>3</Position>
+      <DataType>map(0)|4999544s</DataType>
+    </column>
+    <column id="25" parent="6" name="algorithmPackage.gpuNumbers">
+      <Position>3</Position>
+      <DataType>Integer|4s</DataType>
+    </column>
+    <column id="26" parent="6" name="computePackage.cpuNumbers">
+      <Position>4</Position>
+      <DataType>String(0)|12s</DataType>
+    </column>
+    <column id="27" parent="6" name="algorithmPackage.memory">
+      <Position>4</Position>
+      <DataType>String(0)|12s</DataType>
+    </column>
+    <column id="28" parent="6" name="algorithmStatus">
+      <Position>5</Position>
+      <DataType>String(0)|12s</DataType>
+    </column>
+    <column id="29" parent="6" name="computePackage.gpuNumbers">
+      <Position>5</Position>
+      <DataType>Integer|4s</DataType>
+    </column>
+    <column id="30" parent="6" name="computePackage.memory">
+      <Position>6</Position>
+      <DataType>String(0)|12s</DataType>
+    </column>
+    <column id="31" parent="6" name="branch">
+      <Position>6</Position>
+      <DataType>String(0)|12s</DataType>
+    </column>
+    <column id="32" parent="7" name="_id">
+      <DataType>ObjectId(0)|12s</DataType>
+    </column>
+    <column id="33" parent="7" name="configs">
+      <DataType>map(0)|4999544s</DataType>
+    </column>
+    <column id="34" parent="7" name="images">
+      <DataType>array(0)|2003s</DataType>
+    </column>
+    <column id="35" parent="7" name="name">
+      <DataType>String(0)|12s</DataType>
+    </column>
+    <column id="36" parent="7" name="configs.config1">
+      <Position>1</Position>
+      <DataType>map(0)|4999544s</DataType>
+    </column>
+    <column id="37" parent="7" name="configs.config1.cjq">
+      <Position>2</Position>
+      <DataType>String(0)|12s</DataType>
+    </column>
+    <column id="38" parent="7" name="configs.config1.ls">
+      <Position>3</Position>
+      <DataType>String(0)|12s</DataType>
+    </column>
+    <column id="39" parent="9" name="_id">
+      <DataType>ObjectId(0)|12s</DataType>
+    </column>
+    <column id="40" parent="9" name="busy">
+      <DataType>list(0)|4999545s</DataType>
+    </column>
+    <column id="41" parent="9" name="name">
+      <DataType>String(0)|12s</DataType>
+    </column>
+    <column id="42" parent="10" name="_id">
+      <DataType>ObjectId(0)|12s</DataType>
+    </column>
+    <column id="43" parent="10" name="createOn">
+      <DataType>String(0)|12s</DataType>
+    </column>
+    <column id="44" parent="10" name="email">
+      <DataType>String(0)|12s</DataType>
+    </column>
+    <column id="45" parent="10" name="password">
+      <DataType>String(0)|12s</DataType>
+    </column>
+    <column id="46" parent="10" name="role">
+      <DataType>Integer|4s</DataType>
+    </column>
+    <column id="47" parent="10" name="status">
+      <DataType>Integer|4s</DataType>
+    </column>
+    <column id="48" parent="10" name="userName">
+      <DataType>String(0)|12s</DataType>
+    </column>
+    <column id="49" parent="11" name="_id">
+      <DataType>ObjectId(0)|12s</DataType>
+    </column>
+    <column id="50" parent="11" name="email">
+      <DataType>String(0)|12s</DataType>
+    </column>
+    <column id="51" parent="11" name="password">
+      <DataType>String(0)|12s</DataType>
+    </column>
+    <column id="52" parent="11" name="role">
+      <DataType>Integer|4s</DataType>
+    </column>
+    <column id="53" parent="11" name="token">
+      <DataType>String(0)|12s</DataType>
+    </column>
+    <column id="54" parent="11" name="userName">
+      <DataType>String(0)|12s</DataType>
+    </column>
+    <column id="55" parent="11" name="uid">
+      <Position>1</Position>
+      <DataType>Integer|4s</DataType>
+    </column>
+    <column id="56" parent="12" name="_id">
+      <DataType>ObjectId(0)|12s</DataType>
+    </column>
+    <column id="57" parent="12" name="count">
+      <DataType>Integer|4s</DataType>
+    </column>
+    <column id="58" parent="13" name="_id">
+      <DataType>ObjectId(0)|12s</DataType>
+    </column>
+    <column id="59" parent="13" name="by">
+      <DataType>String(0)|12s</DataType>
+    </column>
+    <column id="60" parent="13" name="description">
+      <DataType>String(0)|12s</DataType>
+    </column>
+    <column id="61" parent="13" name="likes">
+      <DataType>Integer|4s</DataType>
+    </column>
+    <column id="62" parent="13" name="password">
+      <DataType>String(0)|12s</DataType>
+    </column>
+    <column id="63" parent="13" name="role">
+      <DataType>String(0)|12s</DataType>
+    </column>
+    <column id="64" parent="13" name="title">
+      <DataType>String(0)|12s</DataType>
+    </column>
+    <column id="65" parent="13" name="userName">
+      <DataType>String(0)|12s</DataType>
+    </column>
+    <column id="66" parent="13" name="email">
+      <Position>1</Position>
+      <DataType>String(0)|12s</DataType>
+    </column>
+    <column id="67" parent="13" name="token">
+      <Position>1</Position>
+      <DataType>String(0)|12s</DataType>
+    </column>
+  </database-model>
+</dataSource>

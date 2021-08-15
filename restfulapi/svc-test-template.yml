@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: test-a1-1
+  name: test-a1-1
+  namespace: default
+spec:
+  type: NodePort
+  ports:
+  - nodePort: 31500
+    port: 8022
+    targetPort: 22
+  selector:
+    app: test-a1-1

@@ -1,0 +1,13 @@
+database:
+  name: admin
+  userCollection:
+    name: Users
+  requestCollection:
+    name: Requests
+  algorithmCollection:
+    name: Algorithms
+
+
+storage:
+  nfsPath: /mnt/data
+  algs: /Algorithms

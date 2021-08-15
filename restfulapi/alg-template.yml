@@ -1,0 +1,48 @@
+apiVersion: batch/v1
+kind: Job
+metadata: &id001
+  labels:
+    app: alg-a1
+  name: alg-a1
+  namespace: default
+spec:
+  completions: 1
+  parallelism: 1
+  template:
+    metadata: *id001
+    spec:
+      containers:
+      - args:
+        - /usr/sbin/sshd && chmod +x /gitCompProject/compileScript.sh && /bin/bash
+          /gitCompProject/compileScript.sh && /bin/bash
+        command:
+        - /bin/bash
+        - -c
+        image: 10.16.17.92:8433/library/ubuntu16.04-ssh:v1
+        imagePullPolicy: IfNotPresent
+        name: alg-a1
+        ports:
+        - containerPort: 22
+        resources:
+          requests:
+            memory: 800Mi
+            cpu: 200m
+        volumeMounts:
+        - mountPath: /CompileData
+          name: expose-file
+        - mountPath: /gitCompProject
+          name: git-repo
+      imagePullSecrets:
+      - name: harbor-admin-secret
+      restartPolicy: Never
+      volumes:
+      - name: expose-file
+        nfs:
+          path: /mnt/data/Algorithms/a1
+          readOnly: false
+          server: 10.16.17.92
+      - gitRepo:
+          directory: .
+          repository: https://github.com/iwannastay/helloworld.git
+          revision: main
+        name: git-repo

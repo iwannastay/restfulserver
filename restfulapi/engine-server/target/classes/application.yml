@@ -1,0 +1,66 @@
+server:
+  port: 8001
+  servlet:
+    context-path: /support
+
+k8s:
+  proPath: /root/.kube/config
+  devPath: /root/.kube/mconfig
+
+gitlab:
+  token: "D2bY_v5-r3RjZU2GgWGC"
+  path: ./token
+
+alg:
+  namespace: default
+
+dev:
+  namespace: development
+
+deployment:
+  appAddress: http://10.16.17.92:30098/support/app
+  taskAddress: http://10.16.17.92:30098/support/task
+
+nginx:
+  downloadAddress: http://10.16.17.92:30234/download
+
+image:
+  dockerhost: tcp://10.16.11.109:2375
+  username: admin
+  password: 123456
+  repositoryAddress: 10.16.17.92:8433
+  persistence: public
+  tmp: tmp
+  library: library
+
+
+
+
+logging:
+  config: /root/.kube/logconfig.xml
+  level:
+    cn.jay.repository: trace
+
+
+spring:
+  application:
+    name: restfulserver
+
+management:
+  security:
+    enabled: false
+    #prometheus+grafana+springboot2监控集成配置
+  metrics:
+    tags:
+      applications: ${spring.application.name}
+    export:
+      prometheus:
+        enabled: true
+      jmx:
+        enabled: true
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+      base-path: /metrics
+      #prometheus+grafana+springboot2监控集成配置
