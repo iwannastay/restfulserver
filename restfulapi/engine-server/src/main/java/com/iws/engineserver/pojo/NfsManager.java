@@ -122,6 +122,7 @@ public class NfsManager implements StorageManager {
     public boolean deleteUserMenu(String name){
         String dir=rootPath + userPath + "/" + name;
         File file = new File(dir);
+        //TODO: even if user dir were empty, it doesn't mean that you should delete it because there might be anothor dev container staying active.
         if(file.exists()&& 0== file.list().length){
             return file.delete();
         }
