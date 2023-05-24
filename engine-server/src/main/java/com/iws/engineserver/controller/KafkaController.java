@@ -52,7 +52,6 @@ public class KafkaController {
 
         String algorithmNo=msg.key().substring(4);
         int compileStatus= Integer.parseInt(msg.value());
-        logger.info("callbcak"+algorithmNo+" "+compileStatus);
 
         int oldStatus = algorithmManager.getAlgorithmImp().getAlgorithmByNo(algorithmNo).getCompileStatus();
 
@@ -86,6 +85,7 @@ public class KafkaController {
 //            info.put("code", "500");
 //            info.put("msg", "no such instance");
         }
+        logger.info("callbackAddress: "+url+"-->"+algorithmNo+" "+compileStatus);
         HttpEntity<JSONObject> request = new HttpEntity<>(info, httpHeaders);
         ResponseEntity<String> entity = restTemplate.postForEntity(url, request, String.class);
 
